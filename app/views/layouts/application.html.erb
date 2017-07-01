@@ -5,10 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<p><%= link_to "Home", root_path %> <%= link_to "About", about_path %></p>
+<%= render "layouts/header" %>
 <%= yield %>
 
 </body>
+	<script type="text/javascript">
+	$(".button-collapse").sideNav();
+	</script>
 </html>
