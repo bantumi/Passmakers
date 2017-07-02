@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170702143856) do
+ActiveRecord::Schema.define(version: 20170702182532) do
 
   create_table "beacons", force: :cascade do |t|
     t.string   "descrizione"
@@ -20,6 +20,20 @@ ActiveRecord::Schema.define(version: 20170702143856) do
     t.decimal  "minor"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "cognome"
+    t.string   "telefono"
+    t.string   "email"
+    t.string   "sesso"
+    t.string   "citta"
+    t.string   "provincia"
+    t.string   "nazione"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
   end
 
