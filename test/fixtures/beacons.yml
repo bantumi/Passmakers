@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descrizione: MyString
+  UUID: MyString
+  major: 9.99
+  minor: 9.99
+
+two:
+  descrizione: MyString
+  UUID: MyString
+  major: 9.99
+  minor: 9.99
