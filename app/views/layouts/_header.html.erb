@@ -2,25 +2,14 @@
 	<nav class="teal darken-3">
 	    <div class="container nav-wrapper">
 	      <%= link_to "Passmakers", root_path, class: "brand-logo" %>
-	      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 	      <ul class="right hide-on-med-and-down">
-	      	<% if  user_signed_in? %>
-	      		<li><%= link_to "LogOut", destroy_user_session_path, method: :delete %></li>
+	      	<% if user_signed_in? %>
 	      		<li><a class='dropdown-button btn' data-activates='dropdown1'><%= current_user.name %></a>
-					  <!-- Dropdown Structure -->
-					  <ul id='dropdown1' class='dropdown-content'>
-					    <li><%= link_to "LogOut", destroy_user_session_path, method: :delete %></li>
-					  </ul>
+					<ul id='dropdown1' class='dropdown-content'>
+					   <li><%= link_to "Beacon List", beacons_path %></li>
+					   <li><%= link_to "LogOut", destroy_user_session_path, method: :delete %></li>
+					</ul>
         		</li>
-	      	<% else %>
-	      		<li><%= link_to "Login", new_user_session_path %></li>
-	      		<li><%= link_to "Sign Up", new_user_registration_path %></li>
-	      	<% end %>
-	      </ul>
-	      <ul class="side-nav" id="mobile-demo">
-	      	<% if  user_signed_in? %>
-	      		<li><%= link_to "LogOut", destroy_user_session_path, method: :delete %></li>
-	      		<li><%= current_user.name %></li>
 	      	<% else %>
 	      		<li><%= link_to "Login", new_user_session_path %></li>
 	      		<li><%= link_to "Sign Up", new_user_registration_path %></li>

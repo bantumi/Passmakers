@@ -1,10 +1,14 @@
 class BeaconsController < ApplicationController
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /beacons
   # GET /beacons.json
   def index
-    @beacons = Beacon.all
+    #@beacons = Beacon.all
+    #@beacons = Beacon.where(:user_id => current_user.id)
+
+    @beacons = Beacon.where("user_id = ?",current_user.id).order("updated_at DESC")
   end
 
   # GET /beacons/1
@@ -69,6 +73,6 @@ class BeaconsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def beacon_params
-      params.require(:beacon).permit(:descrizione, :UUID, :major, :minor)
+      params.require(:beacon).permit(:descrizione, :UUID, :major, :minor , :user_id)
     end
 end

@@ -27,6 +27,10 @@
     <%= f.label :minor %><br>
     <%= f.text_field :minor %>
   </div>
+  <div class="field">
+    <%= f.label :user_id , :hidden => true%><br>
+    <%= f.text_field :user_id , :value =>current_user.id , :class => 'text_field', :hidden => true%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
