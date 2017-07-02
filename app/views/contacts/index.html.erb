@@ -11,8 +11,6 @@
       <th>Email</th>
       <th>Sesso</th>
       <th>Citta</th>
-      <th>Provincia</th>
-      <th>Nazione</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,11 +24,9 @@
         <td><%= contact.email %></td>
         <td><%= contact.sesso %></td>
         <td><%= contact.citta %></td>
-        <td><%= contact.provincia %></td>
-        <td><%= contact.nazione %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', contact, class: "waves-effect waves-light btn" %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact), class: "waves-effect waves-light btn" %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +34,5 @@
 
 <br>
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= link_to 'New Contact', new_contact_path , class: "waves-effect waves-light btn"%>
+<br>
