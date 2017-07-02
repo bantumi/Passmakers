@@ -1,7 +1,9 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+<div class="row">
+  <div class="col l6 offset-l3">
+    <h4 class="center">Log in</h4>
+    <br>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
@@ -16,11 +18,15 @@
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
+    <br>
   <% end -%>
 
-  <div class="actions">
+  <div class="actions waves-effect waves-light btn btn-devise btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="You just have an account Please Sign In">
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
+
+  </div>
+</div>
