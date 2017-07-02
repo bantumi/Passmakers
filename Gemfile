@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'materialize-sass'
 gem 'jquery-turbolinks'
 
+gem 'devise'
+
 
 
 # Use ActiveModel has_secure_password
