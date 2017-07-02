@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('select').material_select();
+    $('#sucu_select').on('change', function() {
+      $('#sucu').val($('#sucu_select').val());
+    });
+});
+</script>
+
   <div class="field">
     <%= f.label :nome %><br>
     <%= f.text_field :nome %>
@@ -27,9 +36,17 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  <div>
+  <label>Sesso</label>
+  <div class="input-field col s6">
+    <select id="sucu_select">
+      <option value="" disabled selected></option>
+      <option value="M">Male</option>
+      <option value="F">Female</option>
+    </select>
+  </div>
   <div class="field">
-    <%= f.label :sesso %><br>
-    <%= f.text_field :sesso %>
+    <%= f.text_field :sesso, :id => "sucu" , :hidden => true %>
   </div>
   <div class="field">
     <%= f.label :citta %><br>
@@ -47,9 +64,9 @@
     <%= f.label :user_id , :hidden => true%><br>
     <%= f.text_field :user_id , :value =>current_user.id , :class => 'text_field', :hidden => true%>
   </div>
-  <div class="actions">
+  <div class="actions waves-effect waves-light btn">
     <%= f.submit %>
+    <br>
   </div>
-  <br>
   <br>
 <% end %>

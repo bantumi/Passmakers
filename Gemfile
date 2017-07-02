@@ -27,6 +27,7 @@ gem 'materialize-sass'
 gem 'jquery-turbolinks'
 
 gem 'devise'
+gem 'delayed_job_active_record'
 
 
 

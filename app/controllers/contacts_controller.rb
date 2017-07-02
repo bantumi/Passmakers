@@ -27,6 +27,8 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
 
+    SendEmailJob.set(wait: 20.seconds).perform_later(current_user)
+
     respond_to do |format|
       if @contact.save
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
