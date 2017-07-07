@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="col l12"> 
+		<h4>Description: <%= @camptestum.descrizione %></h4>
+	</div>
+</div>
+<% @campRighe = Camprighe.where("camp_id = ? ",@camptestum.id).all%>
+<p>
+  <strong>Contact Included in Campaign: </strong><%= @campRighe.count %>
+</p>
+  <strong>Type:</strong>
+  <% if @camptestum.tipo ==1 %>
+          <td><i class="small material-icons">phone</i></td>
+        <% else %>
+          <td><i class="small material-icons">email</i></td>
+        <% end %>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Telefono</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @campRighe.each do |campRiga| %>
+    	<% contatto = Contact.where("id = ?",campRiga.contact_id).first %>
+	      <tr>
+	      	<td><%= contatto.nome %></td>
+	      	<td><%= contatto.cognome %></td>
+	      	<td><%= contatto.telefono %></td>
+	      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Campaign List', camptesta_path, class: "waves-effect waves-light btn" %>
+<%= link_to 'Edit Campaign', edit_camptestum_path(@camptestum),class: "waves-effect waves-light btn" %>
+

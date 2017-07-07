@@ -24,9 +24,18 @@
         <td><%= contact.email %></td>
         <td><%= contact.sesso %></td>
         <td><%= contact.citta %></td>
-        <td><%= link_to 'Show', contact, class: "waves-effect waves-light btn" %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact), class: "waves-effect waves-light btn" %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn" %></td>
+        <td><%= link_to contact do %>
+          <i class="small material-icons left">zoom_in</i>
+        <% end %>
+        </td>
+        <td><%= link_to edit_contact_path(contact) do %>
+          <i class="small material-icons left">mode_edit</i>
+        <% end %>
+        </td>
+        <td><%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="small material-icons left">delete</i>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

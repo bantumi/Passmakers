@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :camptesta, except:[:addClienti]
+  resources :camprighes
   resources :contacts
   resources :beacons
   devise_for :users
@@ -9,6 +11,11 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
 
   root 'pages#home'
+
+  get '/camptesta/:id/addClienti' => 'camptesta#addClienti'
+
+  get 'addClienToCampaign' => 'camptesta#addClienToCampaign'
+  get 'removeClienToCampaign' => 'camptesta#removeClienToCampaign'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -43,7 +50,7 @@ Rails.application.routes.draw do
   #     resource :seller
   #   end
 
-  # Example resource route with more complex sub-resources:
+  # ExamaddClienToCampaignple resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
   #     resources :sales do

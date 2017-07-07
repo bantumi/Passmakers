@@ -1,0 +1,50 @@
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<p id="notice"><%= notice %></p>
+<h1>Campaign List</h1>
+<table>
+
+  <thead>
+    <tr>
+      <th colspan="1" width="500px">Description</th>
+      <th colspan="1" width="80px">Type</th>
+      <th colspan="4" width="80px">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @camptesta.each do |camptestum| %>
+      <tr>
+        <td><%= camptestum.descrizione %>
+        <% if camptestum.tipo ==1 %>
+          <td><i class="small material-icons">phone</i></td>
+        <% else %>
+          <td><i class="small material-icons">email</i></td>
+        <% end %>
+        </td>
+        <td><%= link_to camptestum do %>
+          <i class="small material-icons left">zoom_in</i>
+        <% end %>
+        </td>
+        <td><%= link_to edit_camptestum_path(camptestum) do %>
+          <i class="small material-icons left">mode_edit</i>
+        <% end %>
+        </td>
+        <td><%= link_to camptestum, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="small material-icons left">delete</i>
+        <% end %>
+        </td>
+        <td><%= link_to "/camptesta/#{camptestum.id}/addClienti" do %>
+          <i class="small material-icons left">contacts</i>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Campaign', new_camptestum_path, class: "waves-effect waves-light btn" %>
+<br>

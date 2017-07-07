@@ -1,0 +1,39 @@
+<h2>Aggiungi Contatto a Campagna</h2>
+<p>
+  <strong>Descrizione:</strong>
+  <%= @camptestum.descrizione %>
+  <strong>Numero Contatti:</strong>
+  <%= @contacts.count %>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Telefono</th>
+      <th>Email</th>
+      <th>Sesso</th>
+      <th>Citta</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.nome %></td>
+        <td><%= contact.cognome %></td>
+        <td><%= contact.telefono %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.sesso %></td>
+        <td><%= contact.citta %></td>
+          <% if (Camprighe.exists?(contact_id:contact.id,camp_id:@camptestum.id)) %>
+              <td><%= link_to 'Remove', removeClienToCampaign_path(user_id: contact.id,camp_id:@camptestum.id) ,class: "waves-effect waves-light btn" %></td>
+          <% else %>
+              <td><%= link_to 'Add', addClienToCampaign_path(user_id: contact.id,camp_id:@camptestum.id) ,class: "waves-effect waves-light btn" %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Campaign List', camptesta_path,class: "waves-effect waves-light btn" %>

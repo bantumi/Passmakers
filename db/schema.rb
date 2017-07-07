@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170702191329) do
+ActiveRecord::Schema.define(version: 20170702202605) do
 
   create_table "beacons", force: :cascade do |t|
     t.string   "descrizione"
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 20170702191329) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+  end
+
+  create_table "camprighes", force: :cascade do |t|
+    t.string   "camp_id"
+    t.string   "contact_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "camptesta", force: :cascade do |t|
+    t.string   "descrizione"
+    t.string   "user_id"
+    t.integer  "tipo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "contacts", force: :cascade do |t|

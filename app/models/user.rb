@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :beacons
   has_many :contacts
+  has_many :camptestas
 end

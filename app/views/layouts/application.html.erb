@@ -10,8 +10,14 @@
 </head>
 <body>
 <%= render "layouts/header" %>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+	<div class="row">
+		<br>
+	  	<div class="col-xs-10 col-xs-offset-1 pink lighten-4">
+	    <% flash.each do |message_type, message| %>
+	  		<%= content_tag(:div, message,  class: "alert alert-#{message_type}", role: "alert") %>
+		<% end %>
+	  	</div>
+	</div>
 	<main class="container">
 		<%= yield %>
 		<br>

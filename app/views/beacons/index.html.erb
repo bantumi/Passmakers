@@ -22,9 +22,18 @@
         <td><%= beacon.UUID %></td>
         <td><%= beacon.major %></td>
         <td><%= beacon.minor %></td>
-        <td><%= link_to 'Show', beacon, class: "waves-effect waves-light btn" %></td>
-        <td><%= link_to 'Edit', edit_beacon_path(beacon), class: "waves-effect waves-light btn" %></td>
-        <td><%= link_to 'Destroy', beacon, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-light btn" %></td>
+        <td><%= link_to beacon do %>
+          <i class="small material-icons left">zoom_in</i>
+        <% end %>
+        </td>
+        <td><%= link_to edit_beacon_path(beacon) do %>
+          <i class="small material-icons left">mode_edit</i>
+        <% end %>
+        </td>
+        <td><%= link_to beacon, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="small material-icons left">delete</i>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
