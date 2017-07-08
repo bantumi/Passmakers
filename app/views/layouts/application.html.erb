@@ -10,14 +10,15 @@
 </head>
 <body>
 <%= render "layouts/header" %>
-	<div class="row">
-		<br>
-	  	<div class="col-xs-10 col-xs-offset-1 pink lighten-4">
-	    <% flash.each do |message_type, message| %>
-	  		<%= content_tag(:div, message,  class: "alert alert-#{message_type}", role: "alert") %>
-		<% end %>
-	  	</div>
+<br>
+	<div class="container">
+		 <% flash.each do |type, message| %>
+		 <script>
+		 	 Materialize.toast('<%= message %>', 4000) // 4000 is the duration of the toast
+		 </script>
+		 <% end %>
 	</div>
+	<%= render "pages/slider" if action_name == 'home' %>
 	<main class="container">
 		<%= yield %>
 		<br>

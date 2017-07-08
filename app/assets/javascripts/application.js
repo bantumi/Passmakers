@@ -17,3 +17,8 @@
 //= require jquery.turbolinks
 //= require materialize
 //= require turbolinks
+
+  $(document).ready(function(){
+    $('.parallax').parallax();
+  });
+        
